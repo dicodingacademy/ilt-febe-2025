@@ -1,28 +1,54 @@
-const drawerButton = document.querySelector('#drawer-button');
-const drawerNavigation = document.querySelector('#navList');
+import {
+  ALL_AUTHORS,
+  getAllMusics,
+  setupDrawer,
+} from './utils.js';
 
-function setupDrawer() {
-  drawerButton.addEventListener('click', () => {
-    drawerNavigation.classList.toggle('open');
-  });
+const musicList = document.getElementById('musicList');
+const filterBar = document.getElementById('filterBar');
+const nowPlayingToggle = document.getElementById('nowPlayingToggle');
 
-  document.body.addEventListener('click', (event) => {
-    if (!drawerNavigation.contains(event.target) && !drawerButton.contains(event.target)) {
-      drawerNavigation.classList.remove('open');
-    }
-  });
+const musics = getAllMusics();
+let activeAuthor = ALL_AUTHORS;
+let currentAudio = null;
+let currentMusic = null;
+
+/**
+ * TODO: Tampilkan seluruh lagu sebagai kartu di dalam musicList.
+ * TODO: Gunakan hasil filter sebagai sumber datanya.
+ * TODO: Perbarui jumlah hasil dan tombol aktif lewat renderFilterState.
+ */
+function render() {
+  const filteredMusics = musics;
 }
 
-function setupOnlyOneAudioIsPlaying() {
-  // Function ini dimanfaatkan untuk mengaktifkan satu audio saja.
-}
+// TODO: Buat tombol "Semua" dan satu tombol filter untuk setiap author.
+function renderFilterButtons() {}
+
+// TODO: Tangani klik tombol filter dengan event delegation.
+function setupFilter() {}
+
+/**
+ * TODO: Hentikan audio yang sedang diputar.
+ * TODO: Kosongkan currentAudio dan currentMusic, lalu sembunyikan Now Playing.
+ */
+function stopCurrentAudio() {}
+
+/**
+ * TODO: Perbarui Now Playing saat audio diputar, dijeda, dan selesai.
+ * TODO: Hentikan audio lain agar hanya satu lagu berbunyi.
+ * TODO: Jalankan play dan pause lewat tombol nowPlayingToggle.
+ */
+function setupAudioPlayer() {}
 
 function init() {
   setupDrawer();
 
-  // Lakukan get musics dan render ke DOM di sini
+  renderFilterButtons();
+  render();
 
-  setupOnlyOneAudioIsPlaying();
+  setupFilter();
+  setupAudioPlayer();
 }
 
 init();
