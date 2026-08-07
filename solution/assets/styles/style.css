@@ -1,144 +1,251 @@
+:root {
+  --color-text: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-surface: #ffffff;
+  --color-accent: #1a1a1a;
+
+  --radius: 8px;
+}
+
 * {
   margin: 0;
   padding: 0;
-
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-
-  background-color: #f9f5ed;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  line-height: 1.5;
 }
 
-header {
-  margin: 0 auto;
+img {
+  display: block;
+  max-width: 100%;
+}
 
-  padding: 16px 32px;
-  max-width: 1200px;
+a {
+  color: inherit;
+}
 
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* HEADER */
+.site-header {
+  border-block-end: 1px solid var(--color-line);
+}
+
+.header-content {
   display: flex;
   align-items: center;
+  gap: 32px;
+  padding-block: 16px;
 }
 
-header .drawer-button {
-  display: none;
-
-  padding: 8px;
-  border: 0;
-  border-radius: 4px;
-
-  font-weight: bold;
-  font-size: 28px;
-  color: #141e16;
-
-  background-color: transparent;
-
-  cursor: pointer;
+.brand img {
+  height: 28px;
+  width: auto;
 }
 
-header img {
-  margin-right: 32px;
+.navlist {
+  display: flex;
+  gap: 24px;
+  list-style: none;
 }
 
-header nav ul li {
-  display: inline;
-}
-
-header nav ul li a {
-  display: inline-block;
-  padding: 16px 32px;
-
-  color: #141e16;
+.navlist a {
+  font-size: 0.9rem;
+  color: var(--color-muted);
   text-decoration: none;
 }
 
-main {
-  padding: 16px 32px;
-  margin: 0 auto;
-  max-width: 1200px;
-
-  display: flex;
-  align-items: center;
+.navlist a:hover {
+  color: var(--color-text);
 }
 
-main .content {
-  padding: 16px;
-  flex: 4;
-}
-
-main .content h2 {
-  font-size: 64px;
-  font-weight: bold;
-}
-
-main .content p {
-  font-size: 18px;
-  margin-top: 32px;
-}
-
-main .content button {
-  margin-top: 64px;
-  padding: 12px 16px;
-  border: 0;
-  border-radius: 8px;
-
-  background-color: #3b855b;
-
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-
+.drawer-button {
+  display: none;
+  margin-inline-start: auto;
+  padding: 4px 8px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  background-color: transparent;
   cursor: pointer;
 }
 
-main .hero-image {
-  flex: 5;
-  padding: 16px;
+/* INTRO */
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding-block: 48px 24px;
 }
 
-main .hero-image img {
+.intro__image {
+  flex-shrink: 0;
+  height: clamp(72px, 14vw, 112px);
+  width: auto;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.intro p {
+  margin-block-start: 8px;
+  color: var(--color-muted);
+}
+
+/* FILTER */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-block: 16px 0;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  padding-block: 16px 32px;
+}
+
+.filter-button {
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Tanpa :not(), hover menimpa aturan tombol aktif karena spesifisitasnya lebih tinggi. */
+.filter-button:not(.filter-button--active):hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+  background-color: #f3f4f6;
+}
+
+.filter-button--active {
+  color: var(--color-surface);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Tombol aktif memberi umpan balik hover ke arah berbeda */
+.filter-button--active:hover {
+  background-color: #404040;
+  border-color: #404040;
+}
+
+/* MUSIC LIST */
+.music-list {
+  display: grid;
+
+  /* auto-fill menjaga jumlah kolom tetap sama; auto-fit akan membuat kartu melar. */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px 24px;
+
+  /* Tanpa ini, tinggi setiap kartu ikut kartu tertinggi dalam satu baris. */
+  align-items: start;
+}
+
+.music-item__art {
   width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background-color: var(--color-line);
 }
 
-@media (max-width: 750px) {
-  header {
-    justify-content: space-between;
-  }
+.music-item__body {
+  padding-block-start: 12px;
+}
 
-  header .drawer-button {
+.music-item__title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.music-item__author {
+  margin-block-start: 2px;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* FOOTER */
+.site-footer {
+  margin-block-start: 64px;
+  padding-block: 24px;
+  border-block-start: 1px solid var(--color-line);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+@media screen and (width <= 700px) {
+  .drawer-button {
     display: inline-block;
   }
 
-  header nav {
-    background-color: white;
-    min-height: 100vh;
-    width: 200px;
-
+  .navlist {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset-block: 0 auto;
+    inset-inline-start: 0;
 
-    transform: translateX(-200px);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  header nav ul li,
-  header nav ul li a {
-    display: block;
-  }
-
-  header nav.open {
-    transform: translateX(0);
-  }
-
-  main {
     flex-direction: column;
+    gap: 0;
+    width: 220px;
+    min-height: 100vh;
+    padding: 24px;
+
+    background-color: var(--color-surface);
+    border-inline-end: 1px solid var(--color-line);
+
+    /* Drawer harus berada di atas konten halaman */
+    z-index: 60;
+
+    transform: translateX(-100%);
+    transition: transform 200ms ease-in-out, visibility 200ms;
+
+    /* Mengeluarkan link dari urutan Tab saat drawer tertutup. */
+    visibility: hidden;
+  }
+
+  .navlist a {
+    display: block;
+    padding-block: 12px;
+  }
+
+  .navlist.open {
+    transform: translateX(0);
+    visibility: visible;
   }
 }
 
-@media (max-width: 1000px) {
-  main .content h2 {
-    font-size: 48px;
+@media (prefers-reduced-motion: reduce) {
+  .navlist {
+    transition: none;
   }
 }
