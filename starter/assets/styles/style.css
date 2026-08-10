@@ -86,113 +86,11 @@ a {
   cursor: pointer;
 }
 
-/* INTRO */
-.intro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+/* TODO: Tata section intro menjadi dua kolom dengan flexbox. */
 
-  padding-block: 48px 24px;
-}
+/* TODO: Tata daftar filter agar berbaris ke samping dengan flexbox. */
 
-.intro__image {
-  flex-shrink: 0;
-  height: clamp(72px, 14vw, 112px);
-  width: auto;
-}
-
-.intro h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-.intro p {
-  margin-block-start: 8px;
-  color: var(--color-muted);
-}
-
-/* FILTER */
-.section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  padding-block: 16px 0;
-}
-
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-
-  padding-block: 16px 32px;
-}
-
-.filter-button {
-  min-height: 36px;
-  padding: 6px 14px;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  font-family: inherit;
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  background-color: transparent;
-  cursor: pointer;
-}
-
-/* Tanpa :not(), hover menimpa aturan tombol aktif karena spesifisitasnya lebih tinggi. */
-.filter-button:not(.filter-button--active):hover {
-  color: var(--color-text);
-  border-color: var(--color-text);
-  background-color: #f3f4f6;
-}
-
-.filter-button--active {
-  color: var(--color-surface);
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-/* Tombol aktif memberi umpan balik hover ke arah berbeda */
-.filter-button--active:hover {
-  background-color: #404040;
-  border-color: #404040;
-}
-
-/* MUSIC LIST */
-.music-list {
-  display: grid;
-
-  /* auto-fill menjaga jumlah kolom tetap sama; auto-fit akan membuat kartu melar. */
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 32px 24px;
-
-  /* Tanpa ini, tinggi setiap kartu ikut kartu tertinggi dalam satu baris. */
-  align-items: start;
-}
-
-.music-item__art {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: var(--radius);
-  background-color: var(--color-line);
-}
-
-.music-item__body {
-  padding-block-start: 12px;
-}
-
-.music-item__title {
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.music-item__author {
-  margin-block-start: 2px;
-  font-size: 0.85rem;
-  color: var(--color-muted);
-}
+/* TODO: Tata daftar musik menjadi beberapa kolom dengan grid. */
 
 /* FOOTER */
 .site-footer {

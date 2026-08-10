@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calm Headphones</title>
+    <title>Calm Playlist</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest" />
 
     <!-- Own Styles -->
     <link rel="stylesheet" href="assets/styles/style.css" />
@@ -12,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -20,31 +27,145 @@
     <script defer src="assets/scripts/script.js"></script>
   </head>
   <body>
-    <header>
-      <div class="brand-name">
-        <img src="assets/images/calm-logo.png" alt="calm logo" />
-      </div>
-      <nav id="main-nav">
-        <ul>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#playlist">Calm Playlist</a></li>
-          <li><a href="#join">Join Calm</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <a href="/">
+            <img src="assets/images/calm-logo.png" alt="Calm Playlist" />
+          </a>
+        </div>
 
-      <button id="drawer-button" class="drawer-button">☰</button>
+        <nav aria-label="Navigasi utama">
+          <ul id="navList" class="navlist">
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#playlist">Calm Playlist</a></li>
+            <li><a href="#join">Join Calm</a></li>
+          </ul>
+        </nav>
+
+        <button
+          id="drawerButton"
+          class="drawer-button"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-controls="navList"
+          aria-expanded="false"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
     </header>
 
     <main>
-      <section class="content">
-        <h2>Be Focus and Productive</h2>
-        <p>Not just an ordinary headphones. It's designed for meditation.</p>
-        <button>Learn more</button>
-      </section>
+      <div class="container">
+        <!-- Dua kolom: teks di kiri, gambar di kanan -->
+        <section class="intro">
+          <div>
+            <h1>Calm Playlist</h1>
+            <p>Musik latar untuk fokus dan produktif.</p>
+          </div>
 
-      <section class="hero-image">
-        <img src="assets/images/calm-hero.png" alt="a man wearing calm headphones" />
-      </section>
+          <img
+            class="intro__image"
+            src="assets/images/headphone.png"
+            alt=""
+            width="500"
+            height="500"
+          />
+        </section>
+
+        <section id="playlist" aria-labelledby="listHeading">
+          <h2 id="listHeading" class="section-title">Daftar Lagu</h2>
+
+          <!-- Daftar filter, ditata berdampingan -->
+          <div
+            id="filterBar"
+            class="filter-bar"
+            role="group"
+            aria-label="Filter lagu berdasarkan author"
+          >
+            <button
+              class="filter-button filter-button--active"
+              type="button"
+              data-author="all"
+              aria-pressed="true"
+            >
+              Semua
+            </button>
+            <button
+              class="filter-button"
+              type="button"
+              data-author="Amir Firouzfard"
+              aria-pressed="false"
+            >
+              Amir Firouzfard
+            </button>
+            <button class="filter-button" type="button" data-author="Patrick A" aria-pressed="false">
+              Patrick A
+            </button>
+            <button class="filter-button" type="button" data-author="FASSound" aria-pressed="false">
+              FASSound
+            </button>
+          </div>
+
+          <!-- Daftar musik, ditata menjadi beberapa kolom -->
+          <div class="music-list">
+            <article class="music-item">
+              <img class="music-item__art" src="assets/images/cover.png" alt="" />
+              <div class="music-item__body">
+                <h3 class="music-item__title">Coverless Book</h3>
+                <p class="music-item__author">Amir Firouzfard</p>
+              </div>
+            </article>
+
+            <article class="music-item">
+              <img class="music-item__art" src="assets/images/cover.png" alt="" />
+              <div class="music-item__body">
+                <h3 class="music-item__title">Lofi Orchestra</h3>
+                <p class="music-item__author">Patrick A</p>
+              </div>
+            </article>
+
+            <article class="music-item">
+              <img class="music-item__art" src="assets/images/cover.png" alt="" />
+              <div class="music-item__body">
+                <h3 class="music-item__title">For a Dream</h3>
+                <p class="music-item__author">Patrick A</p>
+              </div>
+            </article>
+
+            <article class="music-item">
+              <img class="music-item__art" src="assets/images/cover.png" alt="" />
+              <div class="music-item__body">
+                <h3 class="music-item__title">Good Night</h3>
+                <p class="music-item__author">FASSound</p>
+              </div>
+            </article>
+
+            <article class="music-item">
+              <img class="music-item__art" src="assets/images/cover.png" alt="" />
+              <div class="music-item__body">
+                <h3 class="music-item__title">Summer Rain</h3>
+                <p class="music-item__author">Patrick A</p>
+              </div>
+            </article>
+
+            <article class="music-item">
+              <img class="music-item__art" src="assets/images/cover.png" alt="" />
+              <div class="music-item__body">
+                <h3 class="music-item__title">Lofi Study</h3>
+                <p class="music-item__author">FASSound</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; Copyright 2026</p>
+      </div>
+    </footer>
   </body>
 </html>
